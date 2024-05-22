@@ -17,6 +17,9 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+/**
+ * Represents a book entity.
+ */
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
@@ -33,6 +36,12 @@ public class Book implements Representable {
     private Language language;
     private Long downloadCount;
 
+    /**
+     * Constructs a Book object from a BookDTO and an Author.
+     *
+     * @param bookDTO The BookDTO object containing the book details.
+     * @param author The Author object associated with the book.
+     */
     public Book(BookDTO bookDTO, Author author) {
         this.title = bookDTO.title();
         this.author = author;
@@ -40,11 +49,21 @@ public class Book implements Representable {
         this.downloadCount = bookDTO.downloadCount();
     }
 
+    /**
+     * Returns a string representation of the book.
+     *
+     * @return The string representation of the book.
+     */
     @Override
     public String toString() {
         return title + ", by " + author;
     }
 
+    /**
+     * Returns the representation of the book.
+     *
+     * @return The representation of the book.
+     */
     @Override
     public String representation() {
         return this.toString();
